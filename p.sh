@@ -1,5 +1,5 @@
 git add .
 
-git commit -m "add basic home page with chakra"
+git commit -m "add navbar"
 
 git push
