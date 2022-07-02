@@ -1,0 +1,27 @@
+.sidenav {
+  height: calc(100vh - 42px);
+  width: 82px;
+  position: absolute;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+li {
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.iconstyle {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  font-size: 40px;
+}
+.label {
+  font-size: 12px;
+  padding-top: 8px;
+}

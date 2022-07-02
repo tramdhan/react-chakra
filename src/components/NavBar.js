@@ -1,10 +1,9 @@
-import { ReactNode } from "react";
 import {
   Box,
   Flex,
   Avatar,
   HStack,
-  Link,
+  Link as CHLink,
   IconButton,
   Button,
   Menu,
@@ -16,12 +15,17 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
+import { Link, Outlet } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, AddIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useStores } from "../store";
 
-const Links = ["Dashboard", "Projects", "Team"];
+const Links = ["Side Nav", "Other", "Other"];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
+const NavLink = ({ children }) => (
+  <CHLink
     px={2}
     py={1}
     rounded={"md"}
@@ -32,11 +36,21 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     href={"#"}
   >
     {children}
-  </Link>
+  </CHLink>
 );
 
-export default function NavBar() {
+const NavBar = observer(() => {
+  const { mainStore, userStore } = useStores();
+
+  console.log("MAIN - ", mainStore.test2);
+  console.log("USER - ", userStore.test);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const toggleNav = () => {
+    mainStore.topNav = !mainStore.topNav;
+    mainStore.sideNav = !mainStore.sideNav;
+  };
 
   return (
     <>
@@ -52,9 +66,13 @@ export default function NavBar() {
           <HStack spacing={8} alignItems={"center"}>
             <Box>Logo</Box>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              {/* {Links.map((link) => ( */}
+              {/* <NavLink key={link}>{link}</NavLink> */}
+              <Link to="/sidenav">
+                <GiHamburgerMenu />
+              </Link>
+              <div onClick={toggleNav}>Side Nav</div>
+              {/* ))} */}
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
@@ -90,6 +108,11 @@ export default function NavBar() {
           </Box>
         ) : null}
       </Box>
+      <Box>
+        <Outlet />
+      </Box>
     </>
   );
-}
+});
+
+export default NavBar;

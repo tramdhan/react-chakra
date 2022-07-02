@@ -1,5 +1,5 @@
 git add .
 
-git commit -m "add navbar"
+git commit -m "create mobx stores"
 
 git push

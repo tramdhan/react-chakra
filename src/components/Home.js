@@ -1,3 +1,4 @@
+import React, { useState, usestate } from "react";
 import {
   Container,
   SimpleGrid,
@@ -11,15 +12,13 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from "react-icons/io5";
-import { ReactElement } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../store";
+import NavBar from "./NavBar";
+import SideNav from "./SideNav";
+import Footer from "./Footer";
 
-//   interface FeatureProps {
-//     text: string;
-//     iconBg: string;
-//     icon?: ReactElement;
-//   }
-
-const Feature = ({ text, icon, iconBg }: FeatureProps) => {
+const Feature = ({ text, icon, iconBg }) => {
   return (
     <Stack direction={"row"} align={"center"}>
       <Flex w={8} h={8} align={"center"} justify={"center"} rounded={"full"} bg={iconBg}>
@@ -30,56 +29,71 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
   );
 };
 
-export default function Home() {
+const Home = observer(() => {
+  // const [topNav, setTopNav] = useState(true);
+  // const [sideNav, setSideNav] = useState(false);
+
+  const { mainStore, userStore } = useStores();
+
+  console.log("MAIN2 - ", mainStore.test2);
+  console.log("USER2 - ", userStore.test);
+
   return (
-    <Container maxW={"5xl"} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Stack spacing={4}>
-          <Text
-            textTransform={"uppercase"}
-            color={"blue.400"}
-            fontWeight={600}
-            fontSize={"sm"}
-            bg={useColorModeValue("blue.50", "blue.900")}
-            p={2}
-            alignSelf={"flex-start"}
-            rounded={"md"}
-          >
-            Our Story
-          </Text>
-          <Heading>Reusable Functional Components</Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-          </Text>
-          <Stack spacing={4} divider={<StackDivider borderColor={useColorModeValue("gray.100", "gray.700")} />}>
-            <Feature
-              icon={<Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />}
-              iconBg={useColorModeValue("yellow.100", "yellow.900")}
-              text={"Export to Excel (coming soon)"}
-            />
-            <Feature
-              icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
-              iconBg={useColorModeValue("green.100", "green.900")}
-              text={"Sendmail (coming soon)"}
-            />
-            {/* <Feature
+    <>
+      {mainStore.topNav && <NavBar />}
+      {mainStore.sideNav && <SideNav />}
+      <Container maxW={"5xl"} py={12}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <Stack spacing={4}>
+            <Text
+              textTransform={"uppercase"}
+              color={"blue.400"}
+              fontWeight={600}
+              fontSize={"sm"}
+              bg={useColorModeValue("blue.50", "blue.900")}
+              p={2}
+              alignSelf={"flex-start"}
+              rounded={"md"}
+            >
+              Our Story
+            </Text>
+            <Heading>Reusable Functional Components</Heading>
+            <Text color={"gray.500"} fontSize={"lg"}>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            </Text>
+            <Stack spacing={4} divider={<StackDivider borderColor={useColorModeValue("gray.100", "gray.700")} />}>
+              <Feature
+                icon={<Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />}
+                iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                text={"Export to Excel (coming soon)"}
+              />
+              <Feature
+                icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
+                iconBg={useColorModeValue("green.100", "green.900")}
+                text={"Sendmail (coming soon)"}
+              />
+              {/* <Feature
               icon={<Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />}
               iconBg={useColorModeValue("purple.100", "purple.900")}
               text={"Market Analysis"}
             /> */}
+            </Stack>
           </Stack>
-        </Stack>
-        <Flex>
-          <Image
-            rounded={"md"}
-            alt={"feature image"}
-            src={
-              "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-            }
-            objectFit={"cover"}
-          />
-        </Flex>
-      </SimpleGrid>
-    </Container>
+          <Flex>
+            <Image
+              rounded={"md"}
+              alt={"feature image"}
+              src={
+                "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+              }
+              objectFit={"cover"}
+            />
+          </Flex>
+        </SimpleGrid>
+      </Container>
+      <Footer />
+    </>
   );
-}
+});
+
+export default Home;

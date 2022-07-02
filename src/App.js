@@ -1,16 +1,19 @@
-import NavBar from "./components/NavBar";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useObserver } from "mobx-react-lite";
+import { useStores } from "./store";
 import Home from "./components/Home";
-import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  return (
+  const { mainStore, userStore } = useStores();
+  return useObserver(() => (
     <div className="App">
-      <NavBar />
-      <Home />
-      <Footer />
+      <Routes>
+        <Route exact path={"/"} element={<Home />} />
+      </Routes>
     </div>
-  );
+  ));
 }
 
 export default App;
