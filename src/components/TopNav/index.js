@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { FiHome, FiCalendar } from "react-icons/fi";
 import { ReactComponent as AppLogo } from "../../assets/circuitlogo.svg";
 import { useStores } from "../../store";
-import style from "./Sidenav.module.css";
+import style from "./Topnav.module.css";
 
 const navitems = [
   { id: 1, icon: <AppLogo />, label: "" },

@@ -20,6 +20,7 @@ import { observer } from "mobx-react-lite";
 import { Link, Outlet } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, AddIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { ReactComponent as AppLogo } from "../assets/circuitlogo.svg";
 import { useStores } from "../store";
 
 const Links = ["Side Nav", "Other", "Other"];
@@ -64,7 +65,9 @@ const NavBar = observer(() => {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <Box>
+              <AppLogo />
+            </Box>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               {/* {Links.map((link) => ( */}
               {/* <NavLink key={link}>{link}</NavLink> */}
