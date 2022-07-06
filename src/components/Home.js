@@ -14,7 +14,6 @@ import {
 import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../store";
-// import NavBar from "./NavBar";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -32,7 +31,6 @@ const Home = observer(() => {
 
   return (
     <>
-      {/* {mainStore.topNav && <NavBar />} */}
       <Container maxW={"5xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>

@@ -1,27 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Heading,
-  Link,
-  Image,
-  Text,
-  Divider,
-  HStack,
-  Tag,
-  Wrap,
-  WrapItem,
-  SpaceProps,
-  useColorModeValue,
-  Container,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Heading, Link, Image, Text, HStack, Tag, useColorModeValue, Container } from "@chakra-ui/react";
 
-interface IBlogTags {
-  tags: Array<string>;
-  marginTop?: SpaceProps["marginTop"];
-}
-
-const BlogTags: React.FC<IBlogTags> = (props) => {
+const BlogTags = (props) => {
   return (
     <HStack spacing={2} marginTop={props.marginTop}>
       {props.tags.map((tag) => {
@@ -35,12 +15,7 @@ const BlogTags: React.FC<IBlogTags> = (props) => {
   );
 };
 
-interface BlogAuthorProps {
-  date: Date;
-  name: string;
-}
-
-export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
+export const BlogAuthor = (props) => {
   return (
     <HStack marginTop="2" spacing="2" display="flex" alignItems="center">
       <Image
