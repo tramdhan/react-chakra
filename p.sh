@@ -1,5 +1,5 @@
 git add .
 
-git commit -m "add side nav"
+git commit -m "add About page"
 
 git push

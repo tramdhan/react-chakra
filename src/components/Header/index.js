@@ -11,7 +11,7 @@ const navitems = [
   { id: 3, icon: <FiHome />, label: "Events" },
 ];
 
-const SideNav = observer(() => {
+const Header = observer(() => {
   const { mainStore, userStore } = useStores();
 
   const handleNavClick = (id) => {
@@ -52,4 +52,4 @@ const SideNav = observer(() => {
   );
 });
 
-export default SideNav;
+export default Header;

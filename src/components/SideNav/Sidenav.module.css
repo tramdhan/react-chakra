@@ -20,7 +20,13 @@ li {
   margin: auto;
   width: 50%;
   font-size: 40px;
+  color: #36454f;
 }
+
+.iconstyle:hover {
+  color: #000000;
+}
+
 .label {
   font-size: 12px;
   padding-top: 8px;

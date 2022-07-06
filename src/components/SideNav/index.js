@@ -1,30 +1,34 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { FiHome, FiCalendar } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { GrTechnology } from "react-icons/gr";
+import { FcAbout } from "react-icons/fc";
 import { ReactComponent as AppLogo } from "../../assets/circuitlogo.svg";
 import { useStores } from "../../store";
 import style from "./Sidenav.module.css";
 
 const navitems = [
   { id: 1, icon: <AppLogo />, label: "" },
-  { id: 2, icon: <FiCalendar />, label: "Top Nav" },
-  { id: 3, icon: <FiHome />, label: "Events" },
+  { id: 2, icon: <FcAbout />, label: "About" },
+  { id: 3, icon: <GrTechnology />, label: "Tech" },
 ];
 
 const SideNav = observer(() => {
   const { mainStore, userStore } = useStores();
 
+  let navigate = useNavigate();
+
   const handleNavClick = (id) => {
     console.log("click nav: ", id);
     switch (id) {
       case 1:
-        console.log("nothing here");
+        navigate("./", { replace: true });
         break;
       case 2:
-        toggleNav();
+        navigate("./about", { replace: true });
         break;
       case 3:
-        console.log("clicked 2");
+        navigate("./tech", { replace: true });
         break;
       default:
         console.log("default nav, " + id);

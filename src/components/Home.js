@@ -1,4 +1,4 @@
-import React, { useState, usestate } from "react";
+import React from "react";
 import {
   Container,
   SimpleGrid,
@@ -11,12 +11,10 @@ import {
   Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from "react-icons/io5";
+import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../store";
-import NavBar from "./NavBar";
-import SideNav from "./SideNav";
-import Footer from "./Footer";
+// import NavBar from "./NavBar";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -30,18 +28,11 @@ const Feature = ({ text, icon, iconBg }) => {
 };
 
 const Home = observer(() => {
-  // const [topNav, setTopNav] = useState(true);
-  // const [sideNav, setSideNav] = useState(false);
-
   const { mainStore, userStore } = useStores();
-
-  console.log("MAIN2 - ", mainStore.test2);
-  console.log("USER2 - ", userStore.test);
 
   return (
     <>
-      {mainStore.topNav && <NavBar />}
-      {mainStore.sideNav && <SideNav />}
+      {/* {mainStore.topNav && <NavBar />} */}
       <Container maxW={"5xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
@@ -72,11 +63,6 @@ const Home = observer(() => {
                 iconBg={useColorModeValue("green.100", "green.900")}
                 text={"Sendmail (coming soon)"}
               />
-              {/* <Feature
-              icon={<Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />}
-              iconBg={useColorModeValue("purple.100", "purple.900")}
-              text={"Market Analysis"}
-            /> */}
             </Stack>
           </Stack>
           <Flex>
@@ -91,7 +77,6 @@ const Home = observer(() => {
           </Flex>
         </SimpleGrid>
       </Container>
-      <Footer />
     </>
   );
 });
