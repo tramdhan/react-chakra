@@ -9,6 +9,7 @@ import Header from "./components/Header";
 // import Footer from "./components/Footer";
 import About from "./components/About";
 import Tech from "./components/Tech";
+import FileUpload from "./components/FileUpload";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/tech" element={<Tech />} />
+          <Route path="/fileupload" element={<FileUpload />} />
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>
