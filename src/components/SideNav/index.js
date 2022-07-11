@@ -11,7 +11,7 @@ import style from "./Sidenav.module.css";
 const navitems = [
   { id: 1, icon: <AppLogo />, label: "" },
   { id: 2, icon: <FcAbout />, label: "About" },
-  { id: 3, icon: <GrTechnology />, label: "Tech" },
+  { id: 3, icon: <GrTechnology />, label: "DataTable" },
   { id: 4, icon: <FiUploadCloud />, label: "Upload" },
 ];
 
@@ -30,7 +30,7 @@ const SideNav = observer(() => {
         navigate("./about", { replace: true });
         break;
       case 3:
-        navigate("./tech", { replace: true });
+        navigate("./datatable", { replace: true });
         break;
       case 4:
         navigate("./fileupload", { replace: true });
@@ -39,6 +39,7 @@ const SideNav = observer(() => {
         console.log("default nav, " + id);
     }
   };
+
   const toggleNav = () => {
     mainStore.topNav = !mainStore.topNav;
     mainStore.sideNav = !mainStore.sideNav;

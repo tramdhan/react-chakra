@@ -15,10 +15,10 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 import { Link, Outlet } from "react-router-dom";
-import { HamburgerIcon, CloseIcon, AddIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ReactComponent as AppLogo } from "../assets/circuitlogo.svg";
 import { useStores } from "../store";

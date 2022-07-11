@@ -3,12 +3,11 @@ import { observer } from "mobx-react-lite";
 import { message, Upload, notification } from "antd";
 import { FiUploadCloud } from "react-icons/fi";
 import "antd/dist/antd.css";
-import { useStores } from "../../store";
 import { Box, Heading, Center } from "@chakra-ui/react";
 
 const { Dragger } = Upload;
 
-/** Front end file upload component using Ant Design UI Component. Backend (see Express repo) uses Multer to upload the files */
+/** Client side file upload component using Ant Design UI Component. For the server side, see Express repo - which uses Multer to upload the files */
 
 const ImageUpload = observer(() => {
   const props = {

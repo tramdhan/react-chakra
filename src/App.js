@@ -8,7 +8,7 @@ import SideNav from "./components/SideNav";
 import Header from "./components/Header";
 // import Footer from "./components/Footer";
 import About from "./components/About";
-import Tech from "./components/Tech";
+import DataTable from "./components/DataTable";
 import FileUpload from "./components/FileUpload";
 import "./App.css";
 
@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/tech" element={<Tech />} />
+          <Route path="/datatable" element={<DataTable />} />
           <Route path="/fileupload" element={<FileUpload />} />
         </Routes>
         {/* <Footer /> */}
