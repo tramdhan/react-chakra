@@ -1,155 +1,76 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { Button, Space, Table } from "antd";
+import React, { useMemo, useState, useEffect } from "react";
+import axios from "axios";
+import Table from "../Table";
 
-import { data } from "./data";
-
-const DataTable = () => {
-  var pageTitle = "User Groups";
-  const columnWidth = 100;
-
-  const [filteredInfo, setFilteredInfo] = useState({});
-  const [sortedInfo, setSortedInfo] = useState({});
-
-  //   const getMonths = useCallback(async () => {
-  //     const d = new Date();
-
-  //     let currMth = d.getMonth();
-  //     let currYear = d.getFullYear();
-
-  //     var months = [];
-  //     let mthName = "";
-  //     for (let i = 1; i < currMth + 1; i++) {
-  //       mthName = month[d.getMonth() - i];
-  //       mstore.mthLabels.push(mthName + "_" + currYear);
-  //     }
-  //   }, []);
-
-  //   useEffect(() => {
-  //     // mstore.getRecords(api_endpoint, sortby);
-  //     // mstore.mthLabels = [];
-  //     getMonths();
-  //     console.log("monthLabels - ", mstore.mthLabels);
-  //   }, [mstore]);
-
-  const handleChange = (pagination, filters, sorter) => {
-    console.log("Various parameters", pagination, filters, sorter);
-    setFilteredInfo(filters);
-    setSortedInfo(sorter);
-  };
-
-  const clearFilters = () => {
-    setFilteredInfo({});
-  };
-
-  const columns = [
-    {
-      title: "Countries and areas",
-      dataIndex: "countries-and-areas",
-      key: "countries-and-areas",
-      //   filteredValue: filteredInfo.title || null,
-      //   onFilter: (value, record) => record.title.includes(value),
-      //   sorter: (a, b) => a.title.length - b.title.length,
-      //   sortOrder: sortedInfo.columnKey === "countries-and-areas" ? sortedInfo.order : null,
-      ellipsis: true,
-      //       EAP	East Asia and the Pacific
-      // ECA	Europe and Central Asia
-      // EECA	Eastern Europe and Central Asia
-      // ESA	Eastern and Southern Africa
-      // LAC	Latin America and the Caribbean
-      // MENA	Middle East and North Africa
-      // NA	North America
-      // SA	South Asia
-      // SSA	Sub-Saharan Africa
-      // WCA	West and Central Africa
-    },
-    {
-      title: "Region",
-      dataIndex: "region" || "",
-      key: "region",
-      width: columnWidth,
-      filteredValue: filteredInfo.region || null,
-      onFilter: (value, record) => record.region.includes(value),
-      filters: [
-        {
-          text: "Europe and Central Asia",
-          value: "ECA",
-        },
-        {
-          text: "North America",
-          value: "NA",
-        },
-      ],
-    },
-    {
-      title: "UNICEF Sub-region",
-      dataIndex: "unicef-sub-region" || "",
-      key: "unicef-sub-region",
-      width: columnWidth,
-    },
-    // {
-    //   title: "Income Group",
-    //   dataIndex: income - group || "",
-    //   key: mstore.mthLabels[4],
-    //   width: columnWidth,
-    // },
-    // {
-    //   title: "Total",
-    //   dataIndex: total || "",
-    //   key: mstore.mthLabels[3],
-    //   width: columnWidth,
-    // },
-    // {
-    //   title: "Rural Residence",
-    //   dataIndex: rural - residence || "",
-    //   key: rural - residence,
-    //   width: columnWidth,
-    // },
-    // {
-    //   title: "Urban Residence",
-    //   dataIndex: urban - residence || "",
-    //   key: urban - residence,
-    //   width: columnWidth,
-    // },
-    // {
-    //   title: "Source - Data",
-    //   dataIndex: source - data || "",
-    //   key: source - data,
-    //   width: columnWidth,
-    // },
-    // {
-    //   title: "Source - Time period",
-    //   dataIndex: source - time - period || "",
-    //   key: source - time - period,
-    //   width: columnWidth,
-    // },
-  ];
-
+const Genres = ({ values }) => {
+  // Loop through the array and create a badge-like component instead of a comma-separated string
   return (
     <>
-      <h1 className="page-title">
-        <span>
-          {/* <span className="adminpage-title">{pageTitle}</span> -<span>
-            {mstore.items.length}</span> */}
-        </span>
-      </h1>
-      <Space
-        style={{
-          marginBottom: 16,
-        }}
-      >
-        <Button onClick={clearFilters}>Clear filters</Button>
-      </Space>
-      <Table
-        size="small"
-        // scroll={{
-        //   y: 440,
-        // }}
-        pagination={false}
-        columns={columns}
-        dataSource={data}
-        onChange={handleChange}
-      />
+      {values.map((genre, idx) => {
+        return (
+          <span key={idx} className="badge">
+            {genre}
+          </span>
+        );
+      })}
     </>
+  );
+};
+
+const DataTable = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+      setData(result.data);
+    })();
+  }, []);
+
+  const columns = useMemo(
+    () => [
+      {
+        Header: "Details",
+        columns: [
+          {
+            Header: "Language",
+            accessor: "show.language",
+          },
+          {
+            Header: "Genre(s)",
+            accessor: "show.genres",
+            // Cell method will provide the cell value; we pass it to render a custom component
+            Cell: ({ cell: { value } }) => <Genres values={value} />,
+          },
+          {
+            Header: "Runtime",
+            accessor: "show.runtime",
+            // Cell method will provide the value of the cell; we can create a custom element for the Cell
+            Cell: ({ cell: { value } }) => {
+              const hour = Math.floor(value / 60);
+              const min = Math.floor(value % 60);
+              return (
+                <>
+                  {hour > 0 ? `${hour} hr${hour > 1 ? "s" : ""} ` : ""}
+                  {min > 0 ? `${min} min${min > 1 ? "s" : ""}` : ""}
+                </>
+              );
+            },
+          },
+          {
+            Header: "Status",
+            accessor: "show.status",
+          },
+        ],
+      },
+    ],
+    []
+  );
+
+  return (
+    <div className="App">
+      <Table columns={columns} data={data} />
+    </div>
   );
 };
 

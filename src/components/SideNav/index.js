@@ -11,7 +11,7 @@ import style from "./Sidenav.module.css";
 const navitems = [
   { id: 1, icon: <AppLogo />, label: "" },
   { id: 2, icon: <FcAbout />, label: "About" },
-  { id: 3, icon: <GrTechnology />, label: "DataTable" },
+  { id: 3, icon: <GrTechnology />, label: "Table" },
   { id: 4, icon: <FiUploadCloud />, label: "Upload" },
 ];
 

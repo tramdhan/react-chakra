@@ -1,5 +1,5 @@
 git add .
 
-git commit -m "add datatable route"
+git commit -m "upgrade chakra icons library"
 
 git push
