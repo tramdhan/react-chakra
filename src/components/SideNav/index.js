@@ -13,6 +13,7 @@ const navitems = [
   { id: 2, icon: <FcAbout />, label: "About" },
   { id: 3, icon: <GrTechnology />, label: "Table" },
   { id: 4, icon: <FiUploadCloud />, label: "Upload" },
+  { id: 5, icon: <FiUploadCloud />, label: "QnA" },
 ];
 
 const SideNav = observer(() => {
@@ -34,6 +35,9 @@ const SideNav = observer(() => {
         break;
       case 4:
         navigate("./fileupload", { replace: true });
+        break;
+      case 5:
+        navigate("./qna", { replace: true });
         break;
       default:
         console.log("default nav, " + id);

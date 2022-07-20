@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { message, Upload, notification } from "antd";
 import { FiUploadCloud } from "react-icons/fi";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
+
 import "antd/dist/antd.css";
 import { Box, Heading, Center } from "@chakra-ui/react";
 
@@ -11,11 +12,29 @@ const { Dragger } = Upload;
 
 /** Client side file upload component using Ant Design UI Component. For the server side, see Express repo - which uses Multer to upload the files */
 
-const ImageUpload = observer(() => {
+const QnA = observer(() => {
   const qnaKnowledgeBase = []; // KB content from DB, manual
   const qnaModel = null; // tensorflow model
   const qnaContent = null; // merged content for searching
-  const loadQnaData = false; // loaded flag only
+  // const loadQnaData = false; // loaded flag only
+
+  const loadQnaData = async () => {
+    try {
+      fetch("./data.js").then(function (response) {
+        console.log(response);
+        return response.json();
+      });
+      // mergeQna();
+    } catch (err) {
+      console.log(err);
+    }
+
+    // pstore.loadQnaData = true;
+  };
+
+  useEffect(() => {
+    loadQnaData();
+  }, []);
 
   const loadQnaModel = async () => {
     const loadedModel = await qna.load();
@@ -72,4 +91,4 @@ const ImageUpload = observer(() => {
   );
 });
 
-export default ImageUpload;
+export default QnA;
