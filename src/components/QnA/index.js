@@ -4,6 +4,7 @@ import { message, Upload, notification } from "antd";
 import { FiUploadCloud } from "react-icons/fi";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
+import { story } from "./data.js";
 
 import "antd/dist/antd.css";
 import { Box, Heading, Center } from "@chakra-ui/react";
@@ -20,16 +21,19 @@ const QnA = observer(() => {
 
   const loadQnaData = async () => {
     try {
-      fetch("./data.js").then(function (response) {
-        console.log(response);
-        return response.json();
-      });
-      // mergeQna();
+      let data = JSON.stringify(story);
+      console.log("data: ", data);
     } catch (err) {
       console.log(err);
     }
 
     // pstore.loadQnaData = true;
+
+    // fetch("./data.js").then(function (response) {
+    //   console.log(response);
+    //   return response.json();
+    // });
+    // mergeQna();
   };
 
   useEffect(() => {
