@@ -1,3 +1,21 @@
-.ant-upload-drag-container {
-  width: 50%;
+.helpQuestion {
+  padding: 10px;
+  line-height: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  margin: 10px 40px, 24px, 40px;
+  vertical-align: top;
+  resize: none;
+  width: 100%;
+  transition: margin-bottom 0.3s 0.017s linear;
+}
+
+.helpResponse {
+  padding: 10px;
+  background-color: #e3e2dd;
 }

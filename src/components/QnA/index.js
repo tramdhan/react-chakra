@@ -1,98 +1,95 @@
-import React, { useEffect } from "react";
-import { observer } from "mobx-react-lite";
-import { message, Upload, notification } from "antd";
-import { FiUploadCloud } from "react-icons/fi";
+import React, { useEffect, useState, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
-import { story } from "./data.js";
+import { Box } from "@chakra-ui/react";
+import { PlayOutline, PlaySolid } from "@tramdhan/react-icons";
+import styles from "./QnA.module.css";
 
 import "antd/dist/antd.css";
-import { Box, Heading, Center } from "@chakra-ui/react";
 
-const { Dragger } = Upload;
+/**
+ * Machine Learning QnA function using Tensorflow js
+ * Takes user input in natural language and returns a response
+ */
 
-/** Client side file upload component using Ant Design UI Component. For the server side, see Express repo - which uses Multer to upload the files */
+const QnA = () => {
+  const [answer, setAnswer] = useState();
+  const [userQuestion, setQuestion] = useState();
+  const [qnaModel, setQnaModel] = useState({});
 
-const QnA = observer(() => {
-  const qnaKnowledgeBase = []; // KB content from DB, manual
-  const qnaModel = null; // tensorflow model
-  const qnaContent = null; // merged content for searching
-  // const loadQnaData = false; // loaded flag only
+  const questionRef = useRef(null);
 
-  const loadQnaData = async () => {
-    try {
-      let data = JSON.stringify(story);
-      console.log("data: ", data);
-    } catch (err) {
-      console.log(err);
-    }
-
-    // pstore.loadQnaData = true;
-
-    // fetch("./data.js").then(function (response) {
-    //   console.log(response);
-    //   return response.json();
-    // });
-    // mergeQna();
-  };
-
-  useEffect(() => {
-    loadQnaData();
-  }, []);
+  const qnaContent =
+    "There once lived a poor tailor, who had a son called Aladdin, a careless, idle boy who would do nothing but play ball all day long in the streets with little idle boys like himself. This so grieved the father that he died; yet, in spite of his mother`s tears and prayers, Aladdin did not mend his ways. One day, when he was playing in the streets as usual, a stranger asked him his age, and if he was not the son of Mustapha the tailor. 'I am, sir,' replied Aladdin; 'but he died a long while ago.' On this the stranger, who was a famous African magician, fell on his neck and kissed him, saying, 'I am your uncle, and knew you from your likeness to my brother. Go to your mother and tell her I am coming.' Aladdin ran home and told his mother of his newly found uncle. 'Indeed, child,' she said, 'your father had a brother, but I always thought he was dead.' However, she prepared supper, and bade Aladdin seek his uncle, who came laden with wine and fruit. He presently fell down and kissed the place where Mustapha used to sit, bidding Aladdin`s mother not to be surprised at not having seen him before, as he had been forty years out of the country. He then turned to Aladdin, and asked him his trade, at which the boy hung his head, while his mother burst into tears. On learning that Aladdin was idle and would learn no trade, he offered to take a shop for him and stock it with merchandise. Next day he bought Aladdin a fine suit of clothes and took him all over the city, showing him the sights, and brought him home at nightfall to his mother, who was overjoyed to see her son so fine. The next day the magician led Aladdin into some beautiful gardens a long way outside the city gates. They sat down by a fountain and the magician pulled a cake from his girdle, which he divided between them. They then journeyed onward till they almost reached the mountains. Aladdin was so tired that he begged to go back, but the magician beguiled him with pleasant stories, and led him on in spite of himself."; // merged content for searching
 
   const loadQnaModel = async () => {
     const loadedModel = await qna.load();
-    this.qnaModel = loadedModel;
+    setQnaModel(loadedModel);
   };
 
-  const props = {
-    name: "file",
-    multiple: true,
-    action: `${process.env.API_ENDPOINT}/fileupload`,
+  useEffect(() => {
+    loadQnaModel();
+  }, []);
 
-    onChange(info) {
-      const { status } = info.file;
+  const answerQuestion = async (e) => {
+    if (e.which === 13 && qnaContent) {
+      const question = questionRef.current.value;
 
-      if (status !== "uploading") {
-        console.log(info.file, info.fileList);
+      if (!qnaModel) {
+        console.log("qnaModel is not loaded");
       }
 
-      if (status === "done") {
-        const key = `open${Date.now()}`;
-        //   Filename is prepended with current timestamp via ExpressJs/Multer = a unique name
+      const answers = await qnaModel.findAnswers(question, qnaContent);
+      setAnswer(answers);
+      setQuestion(question);
+    }
+  };
 
-        notification.open({
-          message: "File Uploaded Successfully",
-          description: `Here is your new filename:- ${info.file.response[0].filename}`,
-          duration: 0,
-          key,
-        });
+  const showAnswer = () => {
+    return answer ? "Response:" : "";
+  };
 
-        console.log("New Filename - ", info.file.response[0].filename);
-      } else if (status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    },
+  const showFailedResponse = () => {
+    return answer?.length < 1 && userQuestion ? (
+      <div className={styles.helpResponse}>Sorry, can't find a response to your question</div>
+    ) : (
+      ""
+    );
   };
 
   return (
-    <Box width="80%" ml={182} height={300}>
-      <Heading mb={4} pt={12}>
-        File Upload
-      </Heading>
-      <p className="ant-upload-hint">Front end file upload component demo.</p>
-
-      <Dragger {...props}>
-        <p className="ant-upload-drag-icon">
-          <Center py={6}>
-            <FiUploadCloud className="" style={{ fontSize: "50px", color: "teal" }} />
-          </Center>
-        </p>
-        <p className="ant-upload-text">Click or drag file(s) to upload</p>
-        <p className="ant-upload-hint">Support for single or multiple files.</p>
-      </Dragger>
-    </Box>
+    <>
+      {qnaModel == null ? (
+        <div style={{ marginTop: "2em" }}>
+          <p>Loading AI model...</p>
+        </div>
+      ) : (
+        <Box bg="#d1d1d1" w="60%" ml={80} p={4}>
+          Ask a question about the story below: <PlayOutline color="green" style={{ fontSize: "4rem" }} />
+          <br />
+          <input
+            ref={questionRef}
+            className={styles.helpQuestion}
+            onKeyPress={answerQuestion}
+            rows="2"
+            cols="22"
+          ></input>
+          <br />
+          <br />
+          <span>{showAnswer()}</span>
+          {answer?.slice(0, 1).map((ans, idx) => (
+            <div className={styles.helpResponse} key={idx}>
+              {ans.text}.
+            </div>
+          ))}
+          {showFailedResponse()}
+          <br />
+          <br />
+          <p>{qnaContent}</p>
+        </Box>
+      )}
+    </>
   );
-});
+};
 
 export default QnA;
