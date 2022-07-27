@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 import { Box } from "@chakra-ui/react";
-import { PlayOutline, PlaySolid } from "@tramdhan/react-icons";
 import styles from "./QnA.module.css";
 
 import "antd/dist/antd.css";
@@ -65,7 +64,7 @@ const QnA = () => {
         </div>
       ) : (
         <Box bg="#d1d1d1" w="60%" ml={80} p={4}>
-          Ask a question about the story below: <PlayOutline color="green" style={{ fontSize: "4rem" }} />
+          Ask a question about the story below:
           <br />
           <input
             ref={questionRef}
