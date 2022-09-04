@@ -54,7 +54,7 @@ export const data = [
     total: "76%",
     "rural-residence": "76%",
     "urban-residence": "76%",
-    "source-data": "Multiple Indicator Cluster Survey",
+    "source-data": "Multiple Indicator Cluster Questionaire",
     "source-time-period": "2012",
   },
   {
