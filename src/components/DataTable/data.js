@@ -8,7 +8,7 @@ export const data = [
     total: "24%",
     "rural-residence": "2%",
     "urban-residence": "33%",
-    "source-data": "Demographic and Health Survey",
+    "source-data": "Demographic and Health Questionaire",
     "source-time-period": "2015-16",
   },
   {
