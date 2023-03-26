@@ -16,7 +16,7 @@
     "@tramdhan/react-icons": "^1.1.3",
     "antd": "^4.23.6",
     "axios": "^0.27.2",
-    "framer-motion": "^7.10.3",
+    "framer-motion": "^8.5.5",
     "mobx": "^6.6.2",
     "mobx-react-lite": "^3.4.0",
     "react": "^18.2.0",
