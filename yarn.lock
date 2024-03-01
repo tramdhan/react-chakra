@@ -2528,10 +2528,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
   integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
-"@remix-run/router@1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.7.1.tgz#fea7ac35ae4014637c130011f59428f618730498"
-  integrity sha512-bgVQM4ZJ2u2CM8k1ey70o1ePFXsEzYVZoWghh6WjM8p59jQ7HxzbHW4SbnWFG7V9ig9chLawQxDTZ3xzOF8MkQ==
+"@remix-run/router@1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.15.0.tgz#461a952c2872dd82c8b2e9b74c4dfaff569123e2"
+  integrity sha512-HOil5aFtme37dVQTB6M34G95kPM3MMuqSmIRVCC52eKV+Y/tGSqw9P3rWhlAx6A+mz+MoX+XxsGsNJbaI5qCgQ==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -9127,20 +9127,20 @@ react-remove-scroll@^2.5.6:
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
 
-react-router-dom@^6.14.1:
-  version "6.14.1"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.14.1.tgz#0ad7ba7abdf75baa61169d49f096f0494907a36f"
-  integrity sha512-ssF6M5UkQjHK70fgukCJyjlda0Dgono2QGwqGvuk7D+EDGHdacEN3Yke2LTMjkrpHuFwBfDFsEjGVXBDmL+bWw==
+react-router-dom@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.22.0.tgz#177c8bd27146decbb991eafb5df159f7a9f70035"
+  integrity sha512-z2w+M4tH5wlcLmH3BMMOMdrtrJ9T3oJJNsAlBJbwk+8Syxd5WFJ7J5dxMEW0/GEXD1BBis4uXRrNIz3mORr0ag==
   dependencies:
-    "@remix-run/router" "1.7.1"
-    react-router "6.14.1"
+    "@remix-run/router" "1.15.0"
+    react-router "6.22.0"
 
-react-router@6.14.1:
-  version "6.14.1"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.14.1.tgz#5e82bcdabf21add859dc04b1859f91066b3a5810"
-  integrity sha512-U4PfgvG55LdvbQjg5Y9QRWyVxIdO1LlpYT7x+tMAxd9/vmiPuJhIwdxZuIQLN/9e3O4KFDHYfR9gzGeYMasW8g==
+react-router@6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.22.0.tgz#a22b44851a79dafc6b944cb418db3e80622b9be1"
+  integrity sha512-q2yemJeg6gw/YixRlRnVx6IRJWZD6fonnfZhN1JIOhV2iJCPeRNSH3V1ISwHf+JWcESzLC3BOLD1T07tmO5dmg==
   dependencies:
-    "@remix-run/router" "1.7.1"
+    "@remix-run/router" "1.15.0"
 
 react-scripts@5.0.1:
   version "5.0.1"
