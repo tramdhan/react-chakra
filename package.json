@@ -6,7 +6,7 @@
     "@ant-design/icons": "^5.4.0",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.13.0",
+    "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@tensorflow-models/qna": "^1.0.2",
     "@tensorflow/tfjs": "^4.20.0",
