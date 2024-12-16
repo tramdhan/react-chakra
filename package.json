@@ -7,7 +7,7 @@
     "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.2.0",
     "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
+    "@emotion/styled": "^11.14.0",
     "@tensorflow-models/qna": "^1.0.2",
     "@tensorflow/tfjs": "^4.22.0",
     "@testing-library/jest-dom": "^6.6.3",
