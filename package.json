@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@tramdhan/react-icons": "^1.1.3",
     "antd": "^5.24.2",
-    "axios": "^1.7.9",
+    "axios": "^1.8.1",
     "framer-motion": "^12.4.7",
     "mobx": "^6.13.6",
     "mobx-react-lite": "^4.1.0",
