@@ -6215,13 +6215,13 @@ fraction.js@^4.2.0:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
-framer-motion@^12.24.0:
-  version "12.24.0"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.24.0.tgz#f0333f014d6ee1760a3b35466c0b27ca6eaaacf7"
-  integrity sha512-ggTMRkIDPc76lHmM+dRT1MmVfFV6t/y+jkWjWuzR7FG5xRvnAAl/5wFPjzSkLE8Nu5E5uIQRCNxmIXtWJVo6XQ==
+framer-motion@^12.27.3:
+  version "12.27.3"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.27.3.tgz#bbd6e7284611939c8c66fe9025be57b72cdc7c88"
+  integrity sha512-N8hlpgYUiyOVIukSlYF2ll4Ot+WYUNvzYgr8f6Jm8qQ8zM9jkgl7kFan1sdC0OOo9HO/4xSHjbdDFAHmyn+alA==
   dependencies:
-    motion-dom "^12.24.0"
-    motion-utils "^12.23.28"
+    motion-dom "^12.27.2"
+    motion-utils "^12.27.2"
     tslib "^2.4.0"
 
 fresh@0.5.2:
@@ -7947,17 +7947,17 @@ mobx@^6.15.0:
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.15.0.tgz#78b9b82d383724eebb4b6e50c2eb4ae2da861cb5"
   integrity sha512-UczzB+0nnwGotYSgllfARAqWCJ5e/skuV2K/l+Zyck/H6pJIhLXuBnz+6vn2i211o7DtbE78HQtsYEKICHGI+g==
 
-motion-dom@^12.24.0:
-  version "12.24.0"
-  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.24.0.tgz#19c4098cc64fb26a61d4c94b3b950133ada1bb93"
-  integrity sha512-RD2kZkFd/GH4fITI8IJvypGgn0vIu5vkrJaXIAkYqORGs5P0CKDHKNvswmoY1H+tbUAOPSh6VtUqoAmc/3Gvig==
+motion-dom@^12.27.2:
+  version "12.27.2"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.27.2.tgz#7bcc51c636f6118ce7903c630a5a796586b58e74"
+  integrity sha512-NJQNr+S6CthEx4AyLWKvM+vPfIBCJjTGMWRjO0n3mele1WueJLV+WRw4GYnOUzfZ58za9oHrIFEHy+fg4uaLqA==
   dependencies:
-    motion-utils "^12.23.28"
+    motion-utils "^12.27.2"
 
-motion-utils@^12.23.28:
-  version "12.23.28"
-  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.23.28.tgz#8930af5b0567967ec92e68c7b9e1df704082d252"
-  integrity sha512-0W6cWd5Okoyf8jmessVK3spOmbyE0yTdNKujHctHH9XdAE4QDuZ1/LjSXC68rrhsJU+TkzXURC5OdSWh9ibOwQ==
+motion-utils@^12.27.2:
+  version "12.27.2"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.27.2.tgz#cd3038236ae2dc3d643bdb272ed831fd6d8ab616"
+  integrity sha512-B55gcoL85Mcdt2IEStY5EEAsrMSVE2sI14xQ/uAdPL+mfQxhKKFaEag9JmfxedJOR4vZpBGoPeC/Gm13I/4g5Q==
 
 ms@2.0.0:
   version "2.0.0"
