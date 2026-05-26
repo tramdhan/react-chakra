@@ -7956,10 +7956,10 @@ mobx-react-lite@^4.1.1:
   dependencies:
     use-sync-external-store "^1.4.0"
 
-mobx@^6.15.0:
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.15.0.tgz#78b9b82d383724eebb4b6e50c2eb4ae2da861cb5"
-  integrity sha512-UczzB+0nnwGotYSgllfARAqWCJ5e/skuV2K/l+Zyck/H6pJIhLXuBnz+6vn2i211o7DtbE78HQtsYEKICHGI+g==
+mobx@^6.15.4:
+  version "6.15.4"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.15.4.tgz#045c64b07ce73e5c5cad474c369f2e0d6be7c2af"
+  integrity sha512-do+2UsEKRVT70W/QqP2F2sju2x4p2xZo+5/azXqKjXgTk2jfmzsLjzwW0YI8CBEjy4ZUdU8EunXocXXwJdCrtw==
 
 motion-dom@^12.38.0:
   version "12.38.0"
