@@ -64,6 +64,16 @@
     "@rc-component/util" "^1.10.1"
     clsx "^2.1.1"
 
+"@ant-design/icons@^6.2.5":
+  version "6.2.5"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-6.2.5.tgz#31c142aa6ce5eaf99598aaead222f4c459693512"
+  integrity sha512-0hKtoKqTjGFOndUyJLJmC9Cg6k4rEO7rLo6xmgbNJH+/ZX1C57RVals2v1j1knHl9n7Q+sBOveTvn931wLOCKw==
+  dependencies:
+    "@ant-design/colors" "^8.0.1"
+    "@ant-design/icons-svg" "^4.4.2"
+    "@rc-component/util" "^1.11.0"
+    clsx "^2.1.1"
+
 "@ant-design/react-slick@~2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@ant-design/react-slick/-/react-slick-2.0.0.tgz#2d1dac45e7fc94060355f7cc233e92ca247133dc"
