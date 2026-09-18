@@ -6355,12 +6355,12 @@ fraction.js@^4.2.0:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
-framer-motion@^13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-13.1.1.tgz#bdec4ee02164633a285e45083da91dadb30194c0"
-  integrity sha512-B/xn2TPS4f61cEBLFjiYlQFnBZUW1YVj/LM+C+N4OP8Rs95VLEI2ot/RlfBg111la/EiyECFaJJi/A3FWA8MUA==
+framer-motion@^13.2.0:
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-13.2.0.tgz#e531f00950f590d5ac0e905a355b8af4ca3923b0"
+  integrity sha512-9E33ebgMaO33w1nN/jEdW8z3/GO483fMi4rqbMG9rt83XgW9QLKRe4NcmJ8s+fQ3O34++UHrIQwlIWGIWTITjA==
   dependencies:
-    motion-dom "^13.1.1"
+    motion-dom "^13.2.0"
     motion-utils "^13.0.0"
     tslib "^2.4.0"
 
@@ -8092,17 +8092,17 @@ mobx@^7.0.3:
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-7.0.3.tgz#4b5e52c3120c5f7aa82e60d19dad63cee0a5067d"
   integrity sha512-KopyyzqZ8xT1fqxFNl8ItKKMpGifRe2ySaNAHs80/cx0mL1bpJtJ46S+FSyzXKRjW0TODWj5zwq/Y9hUdJUy4w==
 
-motion-dom@^13.1.1:
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-13.2.0.tgz#d13d09accabdd6775d3bb981895fa2b8b6c07735"
-  integrity sha512-N6gdSoWRDk0Rh/fVtlqUtLs+fEN3ELFZI3cn3IQE9Mnf3E+Mh8wjO6MstzCOPFh4Yf0L1as5m2eUyYWj8ylVSQ==
+motion-dom@^13.2.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-13.3.0.tgz#e74a9cf5cea598e6c007fbfe05d29fe25a394d6a"
+  integrity sha512-AmAnB6pHdZ1vHGzWzuzteG6Q3j1lHKeX/lbST6jGlgm0cjvLUgaCk1xhOuPMOy5SgovN6wnnUdwFrkcsus7Ftg==
   dependencies:
-    motion-utils "^13.0.0"
+    motion-utils "^13.3.0"
 
-motion-utils@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-13.0.0.tgz#b2e4dbe21e5488032592f0b0d4e0b7b776466dfa"
-  integrity sha512-7DnN7TmbLcYXcG4RVadXIihWlyuM9afoUww8Y5Agg431kGKiuL2/OMyP4mJ5wLz+pvN3t5ySClLOaVXJ+wekRQ==
+motion-utils@^13.0.0, motion-utils@^13.3.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-13.3.0.tgz#f48cb83bc43c29ca06a807cb84ecd3d04563c635"
+  integrity sha512-sgSschQp7EseHInIlR7hBbMuvet3RA0bs28KPZAXJcGKGdxHGvh1ogpYDilY3bOMtl73EqPNmp75sAKHYPU5sg==
 
 ms@2.0.0:
   version "2.0.0"
