@@ -8087,10 +8087,10 @@ mobx-react-lite@^5.1.0:
   resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-5.1.0.tgz#90ff78031ad36c97b980ae7e708db90656c20e2c"
   integrity sha512-++LQTCRr4FJCWuaEvYl5gCtGBwOpOwrnWjm9uhCUDI5nmkzLR8eT1jgMeYfJ8wc88YOYyC/ygjw2KpYPBYGsww==
 
-mobx@^7.0.6:
-  version "7.0.6"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-7.0.6.tgz#0fbf76274138284b77b9e15f2f89ca5d8fbbdb7c"
-  integrity sha512-VJwjVS5K/rojqPSOoDYlXaYl38Lj+gDfLOFeJ/3Pbdh5ITbAO4ks9RgL0TeRI0bydRZ7b/7WrtPPb9Onuj/pcA==
+mobx@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-7.1.2.tgz#baefe4652d26acb4c2a75ca77df6709fbd632cfe"
+  integrity sha512-f2HfS5FP42nuXyRi8f85WQM2Kl+MlSeKGnp+dxaB2QcYW471bKx8uiJsUDIr/iogl+6yzsPRvYshCGBSL94F5g==
 
 motion-dom@14.0.0:
   version "14.0.0"

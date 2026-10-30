@@ -17,7 +17,7 @@
     "antd": "^6.6.6",
     "axios": "^1.20.0",
     "framer-motion": "^14.0.0",
-    "mobx": "^7.0.6",
+    "mobx": "^7.1.2",
     "mobx-react-lite": "^5.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
